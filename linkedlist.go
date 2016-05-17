@@ -46,6 +46,12 @@ func (list *linkedList) Remove(index int) string {
 	if node.next != nil {
 		node.next.previous = node.previous
 	}
+	if list.first == node {
+		list.first = node.next
+	}
+	if list.last == node {
+		list.last = node.previous
+	}
 	return node.value
 }
 
